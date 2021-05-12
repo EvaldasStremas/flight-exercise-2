@@ -14,8 +14,6 @@ available_flights = [
     {"from": "City X", "to": "City W", "price": 35, "flight id": "012"},
 ]
 
-# testg
-
 class FlightTable:
     def __init__(self, available_flights):
         for i in range(len(available_flights)):
