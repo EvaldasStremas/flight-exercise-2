@@ -15,6 +15,9 @@ class FlightsTestCase(unittest.TestCase):
     def test_init(self):
         self.assertEqual(len(self.itemUnderTest._flights), 11)
 
+    # def test_result_destination(self):
+    #     self.assertEqual(self.itemUnderTest.lowest_price_flight[0][0], 'City X')
+
 if __name__ == '__main__':
     os.system('cls')
     unittest.main()
