@@ -127,7 +127,7 @@ class FlightTable:
             if failed == False:
 
                 i = list(i)
-                # print(i)
+                print(i)
                 combination_list.append(i)
         
         return combination_list

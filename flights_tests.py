@@ -4,6 +4,7 @@ Run 2nd class: python -m unittest flights_tests.FlightsTestCase2
 https://docs.python.org/3/library/unittest.html 
 '''
 
+from itertools import combinations
 import unittest
 import flights
 # import os
@@ -19,45 +20,29 @@ class FlightsTestCase(unittest.TestCase):
 
     ####################################################################
 
-    def test_init(self):
+    def test_input_flight_list_length(self):
+        # Check input list values for expected list length
         self.assertEqual(len(self.itemUnderTest._flights), 11)
    
+    def test_input_flight_list_type(self):
+        # Check input list type
+        self.assertEqual(type(self.itemUnderTest._flights), list)
+
     def test_get_ids_to_city(self):
-        # First task final resul test
+        # Check 1st task function for expected result.
         expected_result = ['000', '004']
         results = self.itemUnderTest.get_ids_to_city('City X')
         self.assertEqual(results, expected_result)
 
     def test_get_availables_to_cities(self):
+        # Check 2nd task function for expected result.
         expected_result = ['City Y', 'City E']
 
         results = self.itemUnderTest.get_availables_to_cities('City X')
         self.assertEqual(results, expected_result)
 
-    # def test_get_same_list_values(self):
-    #     # Second task final resul test
-
-    #     for flights in self.itemUnderTest._flights:
-    #         print('flight price: ', flights.price)
-    #         print()
-
-    def test_get_flight_list(self):
-        results = self.itemUnderTest.get_flight_list()
-
-        for flight in results:
-            # print(flight)
-
-            # test_value2 = str(flight[1]).isalpha()
-            # print(test_value2)
-            # self.assertEqual(True, test_value)
-
-            test_value = str(flight[2]).isnumeric()
-            # print(test_value)
-            self.assertEqual(True, test_value)
-
-
     def test_correctly_city_name(self):
-        # Check all list 
+        # Check input list cities names in correct(City X) format.
         words = []
         result = []
 
@@ -88,26 +73,30 @@ class FlightsTestCase(unittest.TestCase):
             # print(test_state)
             self.assertEqual(True, test_state)
 
+    def test_combination_function(self):
+        flight_list = self.itemUnderTest.get_flight_list()
+        # print(flight_list)
+        # for flight in flight_list:
+        #     print(flight)
 
-    # def test_get_availables_to_cities(self):
-    #     # Second task final resul test
-    #     # expected_result = ['City Y', 'City E']
+        combinations = self.itemUnderTest.get_needed_combinations_list(3, flight_list)
+        
+        for flight in combinations:
+            print(flight)
 
-    #     results = self.itemUnderTest.get_availables_to_cities('City X')
+    # def test_get_flight_list(self):
+    #     results = self.itemUnderTest.get_flight_list()
 
+    #     for flight in results:
+    #         print(flight)
 
+    #         # test_value2 = str(flight[1]).isalpha()
+    #         # print(test_value2)
+    #         # self.assertEqual(True, test_value)
 
-    #     self.assertEqual(results, expected_result)
-
-
-    # def test_check_result_cities(self):
-    #     # 
-    #     expected_result = ['City Y', 'City E']
-
-    #     results = self.itemUnderTest.lowest_price_flight
-    #     print(results)
-
-    #     # self.assertEqual(results, expected_result)
+    #         test_value = str(flight[2]).isnumeric()
+    #         # print(test_value)
+    #         self.assertEqual(True, test_value)
 
 
 if __name__ == '__main__':
