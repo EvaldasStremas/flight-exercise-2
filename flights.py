@@ -36,23 +36,34 @@ class Flight:
 
 class FlightTable:
 
-    _accessCount = 0
-    _flights = []
+    # _accessCount = 0
+    # _flights = []
 
     def __init__(self, flights):
+        # print('executing init')
+        # print(len(self._flights))
+
+        self._flights = []
+
         for fl in flights:
             fli = Flight()
             fli.addFields(fl)
             self._flights.append(fli)
 
 
+    # def __del__(self):
+    #     print("Destructor called")
+
     def get_ids_to_city(self, city):
         # Get all flight ids for flights that are going to 'city t'
         ids_list = []
 
         for flight in self._flights:
+            # print('\n')
+            # print(flight.id)
             if flight.toCity == city:
                 ids_list.append(flight.id)
+                # print(flight.id)
         
         return ids_list
 
@@ -97,6 +108,7 @@ class FlightTable:
             checkList.append(flight.fromCity)
             checkList.append(flight.toCity)
             checkList.append(flight.price)
+            # print(flight.price)
             endList.append(checkList)
 
         return endList
@@ -150,7 +162,6 @@ class FlightTable:
 
     def get_cities_result_list(self, depth, flight_list, from_city, to_city):
         # Get all available combinations by flight list
-        # Sort 
 
         # print('Gautos kombinacijos')
         combinations_list = self.get_needed_combinations_list(depth, flight_list)
@@ -211,7 +222,7 @@ class Functions:
             print(flight)
 
 def main():
-    depth = 3
+    depth = 2
     from_city = 'City X'
     to_city = 'City W'
 
