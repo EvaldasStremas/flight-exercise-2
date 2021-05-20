@@ -2,6 +2,8 @@ from itertools import permutations
 from operator import itemgetter
 import os
 
+#test
+
 available_flights = [
     {"from": "City Y", "to": "City X", "price": 60, "flight id": "000"},
     {"from": "City X", "to": "City Z", "price": 78, "flight id": "001"},
@@ -127,7 +129,7 @@ class FlightTable:
             if failed == False:
 
                 i = list(i)
-                print(i)
+                # print(i)
                 combination_list.append(i)
         
         return combination_list
@@ -187,6 +189,7 @@ class FlightTable:
 
         for i in flight_list:
             o = len(i)
+            # print(o)
             # print(i[o-1])
             u.append(i[o-1])
 
